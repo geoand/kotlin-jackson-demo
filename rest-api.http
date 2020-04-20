@@ -1,0 +1,187 @@
+POST http://localhost:8080/greeting/valNoDefaultsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{   "age": 34,   "name": "george" }
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+<> 2020-04-20T103643.200.txt
+<> 2020-04-20T102132.200.txt
+<> 2020-04-20T102017.200.txt
+<> 2020-04-20T101639.200.txt
+<> 2020-04-20T100758.200.txt
+<> 2020-04-20T100536.200.txt
+<> 2020-04-20T100336.200.txt
+
+
+###
+
+POST http://localhost:8080/greeting/valWithAllDefaultsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{   "age": 34,   "name": "george" }
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+<> 2020-04-20T103643-1.200.txt
+<> 2020-04-20T102132-1.200.txt
+<> 2020-04-20T102017-1.200.txt
+<> 2020-04-20T101639-1.200.txt
+<> 2020-04-20T101139.200.txt
+<> 2020-04-20T100800.200.txt
+<> 2020-04-20T100628.200.txt
+<> 2020-04-20T100540.200.txt
+
+
+###
+
+POST http://localhost:8080/greeting/valWithAllDefaultsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ }
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+
+<> 2020-04-20T103644.200.txt
+<> 2020-04-20T102132-2.200.txt
+<> 2020-04-20T102017-2.200.txt
+<> 2020-04-20T101639-2.200.txt
+<> 2020-04-20T101143.200.txt
+<> 2020-04-20T100803.200.txt
+<> 2020-04-20T100631.200.txt
+<> 2020-04-20T100548.400.html
+
+###
+
+POST http://localhost:8080/greeting/valWithAllDefaultsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ "name": "george" }
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+<> 2020-04-20T103644-1.200.txt
+<> 2020-04-20T102132-3.200.txt
+<> 2020-04-20T102017-3.200.txt
+
+###
+
+POST http://localhost:8080/greeting/valWithSomeDefaultsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{  }
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 400, "Response status is not 400");
+});
+%}
+
+
+<> 2020-04-20T103644.400.html
+<> 2020-04-20T102132.400.html
+<> 2020-04-20T102017.400.html
+
+###
+
+POST http://localhost:8080/greeting/valWithSomeDefaultsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ "name": "george" }
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+<> 2020-04-20T103644-2.200.txt
+<> 2020-04-20T102133.200.txt
+<> 2020-04-20T102017-4.200.txt
+
+###
+
+POST http://localhost:8080/greeting/valWithSomeDefaultsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "name": "george",
+  "age": 34
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+
+POST http://localhost:8080/greeting/todo
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{"id":2,"txt":"curl created todo to database #2","completed":true}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+
+<> 2020-04-20T103644-3.200.txt
+
+###
+
+POST http://localhost:8080/greeting/todo
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+
+{"id":2,"txt":"curl created todo to database #2"}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
