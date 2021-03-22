@@ -153,6 +153,94 @@ client.test("Request executed successfully", function() {
 
 ###
 
+POST http://localhost:8080/greeting/listOfValWithSomeDefaultsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+[
+  {
+    "name": "george",
+    "age": 34
+  },
+  {
+    "name": "peppa"
+  }
+]
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+
+POST http://localhost:8080/greeting/valWithObjectInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "input":
+  {
+    "name": "george",
+    "age": 34
+  }
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+
+POST http://localhost:8080/greeting/valWithListOfObjectsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "inputs": [
+    {
+      "name": "george",
+      "age": 34
+    },
+    {
+      "name": "peppa"
+    }
+  ]
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+
+POST http://localhost:8080/greeting/valWithListOfStringsInput
+Accept: text/plain
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "inputs": [
+    "george", "peppa"
+  ]
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+
 POST http://localhost:8080/greeting/todo
 Accept: text/plain
 Cache-Control: no-cache
